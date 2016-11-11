@@ -66,21 +66,21 @@ class TodoListCreator extends Component{
       <View style={styles.container}>
 
           <View style={styles.form}>
-          <View style={styles.inputArea}>
-          <Text style={styles.inputHeader}>Task to do</Text>
-          <TextInput onChangeText={(text)=>{this.updateTodoText(text);}} value={this.state.todo} />
+            <View style={styles.inputArea}>
+              <Text style={styles.inputHeader}>Task to do</Text>
+              <TextInput onChangeText={(text)=>{this.updateTodoText(text);}} value={this.state.todo} />
+            </View>
+
+            <View style={styles.inputArea}>
+              <Text style={styles.inputHeader}>Notes</Text>
+                <TextInput onChangeText={(text)=>{this.updateNoteText(text);}} value={this.state.notes} multiline={true} />
+            </View>
           </View>
 
-          <View style={styles.inputArea}>
-          <Text style={styles.inputHeader}>Notes</Text>
-          <TextInput onChangeText={(text)=>{this.updateNoteText(text);}} value={this.state.notes} multiline={true} />
-          </View>
-          </View>
-
-          <View style={styles.createButtonWrapper} elevation={0}>
-          <TouchableHighlight elevation={5} style={styles.createButton} onPress={this.createNewTodo.bind(this)} underlayColor='transparent'>
-            <Text style={styles.createButtonText}>Update Task</Text>
-          </TouchableHighlight>
+          <View style={[styles.createButtonWrapper, {backgroundColor:realm.objects('Color')[0].color}]} elevation={0}>
+            <TouchableHighlight elevation={5} style={styles.createButton} onPress={this.createNewTodo.bind(this)} underlayColor='transparent'>
+              <Text style={styles.createButtonText}>Update Task</Text>
+            </TouchableHighlight>
           </View>
 
       </View>
@@ -118,7 +118,6 @@ const styles = StyleSheet.create({
         marginRight: 75,
         marginLeft: 75,
         marginBottom:35,
-        backgroundColor:realm.objects('Color')[0].color,
         padding: 10,
     },
 

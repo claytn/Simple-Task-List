@@ -28,10 +28,16 @@ class App extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    realm.addListener('change', () => {
+      this.forceUpdate();
+    });
+  }
+
 
   render() {
     return (
-        <Router firstRoute={FIRST_ROUTE} headerStyle={{backgroundColor:realm.objects('Color')[0].color}} handleBackAndroid={true} titleStyle={styles.titleStyle} />
+        <Router firstRoute={FIRST_ROUTE} headerStyle={{backgroundColor: realm.objects('Color')[0].color}} handleBackAndroid={true} titleStyle={styles.titleStyle} />
     );
   }
 }

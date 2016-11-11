@@ -11,7 +11,6 @@ import {
   Image,
   ScrollView,
   ListView,
-  ToastAndroid
 }from 'react-native';
 import TodoList from './TodoList.js';
 import SettingsIcon from './SettingsIcon.js';
@@ -64,7 +63,6 @@ class Settings extends Component{
 
   submitThemeChange(){
 
-    ToastAndroid.show('Restart App to Apply Changes',ToastAndroid.SHORT);
     realm.write(()=>{
       realm.objects('Color')[0].color = this.state.potentialColor;
     });
@@ -96,7 +94,7 @@ class Settings extends Component{
     <View style={styles.titleChange}>
     <Text style={styles.changeText}>Change Task List Title</Text>
     <TextInput style={{marginRight: 70,}} onChangeText={this.updateText.bind(this)} placeholder={realm.objects('TodoTitle')[0].title}/>
-    <View style={styles.changeButtonWrapper}elevation={0} >
+    <View style={[styles.changeButtonWrapper, { backgroundColor:realm.objects('Color')[0].color }]}elevation={0} >
       <TouchableHighlight onPress={this.submitTitle.bind(this)} underlayColor='transparent'>
         <Text style={styles.changeButtonText}>Save Title</Text>
       </TouchableHighlight>
@@ -178,7 +176,6 @@ class Settings extends Component{
       marginBottom:0,
       marginTop:10,
       padding: 8,
-      backgroundColor:realm.objects('Color')[0].color,
    },
    themeButtonWrapper:{
      alignSelf:'stretch',
