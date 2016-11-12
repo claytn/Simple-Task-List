@@ -113,12 +113,12 @@ class TodoList extends Component{
 
     return(
     <View style={styles.container}>
-    <ListView enableEmptySections={true} dataSource={this.state.dataSource} renderRow={this.renderSingleTodo.bind(this)} />
-    <View style={styles.addButtonWrapper} elevation={0}>
-    <TouchableHighlight elevation={5} style={styles.addButton} onPress={this.createNewTodo.bind(this)} underlayColor='transparent'>
-      <Text style={styles.addButtonText}>Add Task</Text>
-    </TouchableHighlight>
-    </View>
+      <ListView enableEmptySections={true} dataSource={this.state.dataSource} renderRow={this.renderSingleTodo.bind(this)} />
+      <View style={[styles.addButtonWrapper, { backgroundColor:realm.objects('Color')[0].color }]} elevation={0}>
+        <TouchableHighlight elevation={5} style={styles.addButton} onPress={this.createNewTodo.bind(this)} underlayColor='transparent'>
+          <Text style={styles.addButtonText}>Add Task</Text>
+        </TouchableHighlight>
+      </View>
     </View>
     );
   }
@@ -214,7 +214,6 @@ const styles = StyleSheet.create({
     marginBottom:35,
     marginTop: 40,
     padding: 10,
-    backgroundColor:realm.objects('Color')[0].color
 
   },
 

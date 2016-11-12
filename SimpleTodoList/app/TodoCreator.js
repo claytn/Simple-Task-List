@@ -76,7 +76,7 @@ class TodoListCreator extends Component{
           </View>
           </View>
 
-          <View style={styles.createButtonWrapper} elevation={0}>
+          <View style={[styles.createButtonWrapper, { backgroundColor:realm.objects('Color')[0].color }]} elevation={0}>
           <TouchableHighlight elevation={5} style={styles.createButton} onPress={this.createNewTodo.bind(this)} underlayColor='transparent'>
             <Text style={styles.createButtonText}>Create Task</Text>
           </TouchableHighlight>
@@ -116,7 +116,6 @@ const styles = StyleSheet.create({
         marginRight: 75,
         marginLeft: 75,
         marginBottom:35,
-        backgroundColor:realm.objects('Color')[0].color,
         padding: 10,
     },
 
